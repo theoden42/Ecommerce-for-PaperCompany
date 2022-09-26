@@ -5,29 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/landingpage.css">
+    <script src="landingpage.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Landing Page</title>
 </head>
 <body>
-    <div class="navbar">
+    <div class="navbar fixed-top navbar-bg-dark" >
         <div class="logo">
-            <img src="/images/Dunder_Mifflin,_Inc.svg.png" alt="" height="85px" width="120px">
+            <img src="/images/logo.png" alt="">
         </div>
-        <div class="center">DUNDER MIFFIN PAPER</div>
+        <div class="center"><h1>DUNDER MIFFIN PAPER</h1></div>
         <div class="rig">
             <a href="Our Products">Our Products</a>
             <div class="dropdown">
-                <p>Login/Sign up</p>
+                <a href="Login/Sign up">Login/Sign up</a>
                 <div class="dropdown-content">
                     <a href="login.html">Login</a>
                     <a href="signup.html">Signup</a>
                 </div>
             </div>
-            <a href="About Us">About us</a>
+            <a href="">About us</a>
         </div>
     </div>
-    <hr>
     <div class="slogan">
-        <img src="./images/slogan.jpeg" alt="" width="100%" height="500px">
+        <h2>"Best Paper in the World"</h2>
+        <h3>"Best Quality"</h3>
+        <h4>"Best Price"</h4>
+    </div>
+    <div class="slideshow">
+        <img class="mySlides" src="images/slogan.png" >
+        <!-- <img class="mySlides" src="images/slogan1.png" >
+        <img class="mySlides" src="./images/slogan2.png" > -->
+    </div>
+    <div class="about">
+        <h2>About Dunder Mifflin</h2>
+        <p>Dunder Mifflin Paper Company, Inc. is a fictional paper and office supply sales company featured in the American television series The Office. It is analogous to Wernham Hogg in the British original of the series, and Papiers Jennings and Cogirep in the French Canadian and French adaptations, respectively. Originally, the company was completely fictitious, but eventually, the brand was used to sell products at Staples and other office supply outlets.
+
+            Two websites were created to support the fictional company, one with the image of a public website, and one meant to look like the corporation's intranet. NBC sold branded merchandise at its NBC Universal Store website. Its logo was prominently displayed in several locations in downtown Scranton, Pennsylvania, where the show is set. Scranton has been associated internationally with Dunder Mifflin due to the show's international reach. In a 2008 St. Patrick's Day speech in the suburb of Dickson City, then-Taoiseach (prime minister) of Ireland, Bertie Ahern, made a reference to the city's fictional branch office.
+            
+            The name is also at the center of a trademark infringement lawsuit filed by NBCUniversal against Jay Kennette Media Group; when NBC tried to obtain a trademark for the name in 2020, they were denied because Jay Kennette had already registered the trademark in 2017, and was selling merchandise well before NBC.</p>
+    </div>
+    <div class="login">
+        <div class="userLogin">
+            <div class="userImg">
+                <img src="./images/user.png" alt="">
+            </div>
+            <div class="userText">
+                <button type="button" class="btn btn-secondary">User Login</button>
+            </div>
+        </div>
+        <div class="employeeLogin">
+            <div class="employeeImg">
+                <img src="./images/employee.png" alt="">
+            </div>
+            <div class="employeeText">
+                <button type="button" class="btn btn-secondary">Employee Login</button>
+            </div>
     </div>
 </body>
 </html>
