@@ -6,20 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/landingpage.css">
     <link rel="stylesheet" href="./styles/navbar.css">
+
+
     <script src="landingpage.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <title>Landing Page</title>
+    <title>Landing Page</title> 
+    <link rel="icon" href="images/companyicon.png">
+
 </head>
-<body class="bg-info">
-    <div class="navbar fixed-top navbar-bg-dark" >
+
+<body class="body-styles">
+    <div class="navbar fixed-top" >
         <div class="logo">
-            <img src="/images/logo.png" alt="">
+            <img src="./images/logo.png" alt="logo">
         </div>
-        <div class="center"><h1>DUNDER MIFFIN PAPER</h1></div>
-        <div class="rig">
+        <!-- <div class="center"><h1>DUNDER MIFFIN PAPER</h1></div> -->
+
+        <div class="navlinks">
             <a href="Our Products">Our Products</a>
             <div class="dropdown">
                 <a href="Login/Sign up">Login/Sign up</a>
@@ -31,11 +37,83 @@
             <a href="">About us</a>
         </div>
     </div>
+
+
+    <div id="landingpagecarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <ol class="carousel-indicators">
+            <li data-target="#landingpagecarousel" data-slide-to="0" class="active">
+            </li>
+            <li data-target="#landingpagecarousel" data-slide-to="1">
+            </li>
+            <li data-target="#landingpagecarousel" data-slide-to="2">
+            </li>
+            <li data-target="#landingpagecarousel" data-slide-to="3">
+            </li>
+        </ol>
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="overlay-image" style="background-image:url(./images/slideshow1.png)">
+                     
+                </div>
+                <div class="container">
+                    <h1>Towards a Better Tomorrow!</h1> 
+                    <p>Dunder Mifflin is a company aimed at making</br>
+                        the world a better place to live by providing you papers of highest quality.</p>
+                    <p>Become a Dunder Mifflin Customer and support 
+                    </br>sustainble and environment friendly Paper manufacturing.
+                   </p>
+                   <button type="button" class="btn btn-primary btn-lg" style="margin-top: 10px">Sign Up</button>
+                   <button type="button" class="btn btn-primary btn-lg" style="margin-left: 50px; margin-top: 10px">Login</button>
+                </div>
+            </div>
+        
+            <div class="carousel-item ">
+                <div class="overlay-image" style="background-image:url(./images/slideshow1.png)">
+                     
+                </div>
+                <div class="container"></div>
+            </div>
+        
+            <div class="carousel-item ">
+                <div class="overlay-image" style="background-image:url(./images/slideshow1.png)">
+                     
+                </div>
+                <div class="container"></div>
+            </div>
+        
+            <div class="carousel-item ">
+                <div class="overlay-image" style="background-image:url(./images/slideshow1.png)">
+                     
+                </div>
+                <div class="container"></div>
+            </div>
+        
+            <a href="#landingpagecarousel"
+            class="carousel-control-prev" role="button" data-slide="prev">
+            <span class="sr-only">Previous</span>
+            <span class="carousel-control-prev-icon" aria-hidden="true">
+            </span>
+            </a>
+            <a href="#landingpagecarousel"
+            class="carousel-control-next" role="button" data-slide="next">
+            <span class="sr-only">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true">
+            </span>
+            </a>
+        </div>
+    </div>
+
+
+<!-- 
     <div class="slogan">
         <h2>"Best Paper in the World"</h2>
         <h3>"Best Quality"</h3>
         <h4>"Best Price"</h4>
     </div>
+
+
+
     <div class="slideshow">
         <img class="mySlides" src="images/slogan.png" >
     </div>
@@ -47,7 +125,11 @@
             
             The name is also at the center of a trademark infringement lawsuit filed by NBCUniversal against Jay Kennette Media Group; when NBC tried to obtain a trademark for the name in 2020, they were denied because Jay Kennette had already registered the trademark in 2017, and was selling merchandise well before NBC.</p>
     </div>
+
+
     <center><h2>Login/Sign-up</h2></center>
+
+
     <div class="login">
         <div class="userLogin">
             <div class="userImg">
@@ -65,5 +147,11 @@
                 <button type="button" class="btn btn-secondary"><a href=""> Employee Login</a></button>
             </div>
     </div>
+ -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -4,8 +4,14 @@
   font-family: poppins;
   
 }
+
+  .body-styles{
+    background-color: #0C2D48;
+  }
+
   .slogan{
     font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
     font-size: 50px;
     font-weight: 900;
     margin-top: 100px;
@@ -15,6 +21,50 @@
     text-align: center;
 
   }
+
+  .container{
+    color: white;
+    opacity: 1;
+    font-family: Poppins;
+    font-weight: 400;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 600px;
+    padding-bottom: 200px;
+  }
+
+  .overlay-image{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+  }
+
+  .carousel-inner{
+    height: 100%;
+  }
+  .carousel-item{
+    height: 750px;
+    width: 80%;
+    position: relative;
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    color: white
+   }
+   #landingpagecarousel{
+    margin-top: 80px;
+    height: 750px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+   }
  
   .slideshow{
     margin-left: 100px;
@@ -81,12 +131,12 @@
   }
   .userImg{
     height: 255px;
-    background-color: azure;
+    /* background-color: azure; */
     
   }
   .employeeImg{
     height: 255px;
-    background-color: azure;
+    /* background-color: azure; */
   }
   .userImg:hover{
     transform: scale(1.1);
