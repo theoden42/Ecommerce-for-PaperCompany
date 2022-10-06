@@ -30,7 +30,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    left: 600px;
+    left: 60px;
     padding-bottom: 200px;
   }
 
@@ -146,3 +146,16 @@
     transform: scale(1.1);
     box-shadow: 5px 10px -10px white;
   }
+  .productHead{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+  }
+  .products p{
+    font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+  }
+  
