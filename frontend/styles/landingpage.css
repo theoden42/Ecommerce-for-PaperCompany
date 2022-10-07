@@ -150,6 +150,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 50px;
+    padding-right: 60px;
   }
   .products p{
     font-family: 'Poppins', sans-serif;
@@ -158,4 +159,24 @@
     margin-right: 100px;
     text-align: center;
   }
-  
+  .products{
+    padding-bottom: 50px;
+    background-color: white;
+    color: black;
+  }
+  .products img{
+    width:300px;
+    height: 250px;
+    margin: 20px;
+    transition: 0.5s all ease-in-out;
+  }
+  .products img:hover{
+    transform: scale(1.1);
+    box-shadow: 5px 10px -10px white;
+  }
+  .container h1{
+    padding-right: 60px;
+  }
+  .products h3{
+    text-align: center;
+  }
