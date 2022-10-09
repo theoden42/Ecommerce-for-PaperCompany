@@ -163,11 +163,13 @@
     padding-bottom: 50px;
     background-color: white;
     color: black;
+    height: 400px;
   }
   .products img{
     width:300px;
     height: 250px;
-    margin: 20px;
+    padding: 20px;
+    text-align: center;
     transition: 0.5s all ease-in-out;
   }
   .products img:hover{
@@ -178,5 +180,18 @@
     padding-right: 60px;
   }
   .products h3{
+    text-align: center;
+  }
+  .products button{
+    background-color: #425f77;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
     text-align: center;
   }
