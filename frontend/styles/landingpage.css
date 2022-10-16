@@ -49,7 +49,7 @@
     height: 100%;
   }
   .carousel-item{
-    height: 750px;
+    height: 100vh;
     width: 80%;
     position: relative;
     background-color: black;
