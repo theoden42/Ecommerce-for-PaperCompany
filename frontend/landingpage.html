@@ -27,10 +27,10 @@
         <div class="navlinks">
             <a href="Our Products">Our Products</a>
             <div class="dropdown">
-                <a href="Login/Sign up">Login/Sign up</a>
+                <a href="Login/Sign up">Login</a>
                 <div class="dropdown-content">
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Signup</a>
+                    <a href="employeeLogin.html">Employee</a>
+                    <a href="customerLogin.html">Customer</a>
                 </div>
             </div>
             <a href="">About us</a>
@@ -64,9 +64,7 @@
                     <p>Become a Dunder Mifflin Customer and support 
                     </br>sustainble and environment friendly Paper manufacturing.
                    </p>
-                   <button type="button" class="btn btn-primary btn-lg" style="margin-top: 10px">Sign Up</button>
-                   <button type="button" class="btn btn-primary btn-lg" style="margin-left: 50px; margin-top: 10px">Login</button>
-                </div>
+                  </div>
             </div>
         
             <div class="carousel-item ">
@@ -104,14 +102,27 @@
                         </div>    
                     </div>
                 </div>
-            </div>
+                </div>
             </div>
         
             <div class="carousel-item ">
                 <div class="overlay-image" style="background-image:url(./images/slideshow1.png)">
                      
                 </div>
-                <div class="container"></div>
+                <div class="loginp">Login to access your profile and other features.</div>
+                <div class="container" id="containerLogin">
+                <div class="login">
+                <h3 class="loginh">Are you an Employee ?</h3><br>
+                <img src="./images/employee.png" id="empImg" alt="" width="150px"><br>
+                <button type="button" class="btn btn-secondary" id="loginEmp"><a href="empLogin.html"> Employee Login </a></button>
+                </div>
+                
+                <div class="login">
+                <h3 class="loginh">Are you a Customer ?</h3><br>
+                <img src="./images/customer.png" id="custImg" alt="" width="150px"><br>
+                <button type="button" class="btn btn-secondary" height="100px" id="loginCust"><a href="custLogin.html"> Customer Login </a></button>
+                </div>    
+                </div>
             </div>
         
             <div class="carousel-item ">
