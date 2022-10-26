@@ -85,6 +85,7 @@
   }
 
   .myslides{
+    padding-top: 0;
     display: none;
     text-align: center;
     align-items: center;
