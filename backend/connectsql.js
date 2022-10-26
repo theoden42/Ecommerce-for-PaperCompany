@@ -12,7 +12,6 @@ db.connect((err) => {
     else console.log("mysql connected ... ");
 });
 
-
 module.exports = {
     db: db
 }
