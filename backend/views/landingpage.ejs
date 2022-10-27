@@ -21,6 +21,7 @@
 </head>
 
 <body class="body-styles">
+
     <div class="navbar fixed-top">
         <div class="logo">
             <img src="./images/logo.png" alt="logo">
@@ -28,13 +29,13 @@
         <div class="navlinks">
             <a href="Our Products">Our Products</a>
             <div class="dropdown">
-                <a href="Login/Sign up">Login/Sign up</a>
+                <div>Login</div>
                 <div class="dropdown-content">
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Signup</a>
+                    <a href="customerlogin">Customer</a>
+                    <a href="employeelogin">Employee</a>
                 </div>
             </div>
-            <a href="">About us</a>
+            <a href="#landingpagecarousel" data-slide-to="3">About Us</a>
         </div>
     </div>
 
@@ -117,14 +118,14 @@
                     <div class="login">
                         <h3 class="loginh">Are you an Employee ?</h3><br>
                         <img src="./images/employee.png" id="empImg" alt="" width="150px"><br>
-                        <button type="button" class="btn btn-secondary" id="loginEmp"><a href="empLogin.html"> Employee Login </a></button>
+                        <button type="button" class="btn btn-secondary" id="loginEmp"><a href="employeelogin"> Employee Login </a></button>
                     </div>
 
                     <div class="login">
                         <h3 class="loginh">Are you a Customer ?</h3><br>
                         <img src="./images/customer.png" id="custImg" alt="" width="150px"><br>
                         <button type="button" class="btn btn-secondary" height="100px" id="loginCust"><a
-                                href="custLogin.html"> Customer Login </a></button>
+                                href="customerlogin"> Customer Login </a></button>
                     </div>
                 </div>
             </div>
