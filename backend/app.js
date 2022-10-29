@@ -12,9 +12,14 @@ const express = require('express');
 const  path = require('path');
 const { db } = require('./connectsql.js');
 const indexRouter = require('./routes/index');
+const bodyparser = require('body-parser');
+const multer = require('multer');
 
 
 const app = express();
+const upload = multer();
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -23,17 +28,16 @@ app.set('view engine', 'ejs');
 
 // initialising app with utility packages
 // app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 
 /** Useful MiddleWare */
+app.use(upload.array());
+app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyparser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
-
-
-
+  
 // /** Utility Error Handling requires error module*/
 // app.use(function(req, res, next) {
 //   next(createError(404));

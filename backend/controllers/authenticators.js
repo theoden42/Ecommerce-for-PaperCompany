@@ -1,0 +1,33 @@
+const { db }  = require('../connectsql.js');
+
+exports.authcustomer = async (req, res, next) => {
+    const username = req.body.usernamefield;
+    const password = req.body.passwordfield;
+
+    if(!username || !password){
+        return res.status(400).render('customerlogin', { message: 'Incomplete Credentials'});
+    }
+
+    
+    db.query('SELECT user_id, pass, cust_id FROM accounts, customers WHERE user_id=? and cust_id=?', [username, username], (error, results)=>{
+        if(error){
+            console.log(error);
+            return res.status(500).render('customerlogin', { message : 'There was an issue, please try again'});
+        }
+        if(!results || results.length === 0){
+            return res.status(400).render('customerlogin', { message: 'Invalid Credentials'});
+        }
+        if(results[0].pass !== password){
+            return res.status(400).render('customerlogin', { message: 'Invalid Credentials'});
+        }
+        else{
+            return res.status(200).render('customerlogin', { message: 'you are logged in'});
+        }
+    }) 
+};
+
+exports.authemployee = (req, res, next) => {
+
+};
+
+
