@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authenticator = require('../controllers/authenticators');
 
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   let logged = false;
   if(req.session.user){
     logged = true;
@@ -34,6 +34,6 @@ router.post('/employeelogin', authenticator.authemployee);
 
 router.all('*', (req, res, next)=>{
   res.render('404error');
-})
+});
 
 module.exports = router;
