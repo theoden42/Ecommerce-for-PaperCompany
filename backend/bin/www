@@ -1,15 +1,7 @@
 #!/usr/bin/env node
-
-// no need to make changes here::
-
-
-/**
- * Module dependencies.
- */
-
-var app = require('../app');
-var debug = require('debug')('backend:server'); // used to debug code
-var http = require('http');
+const app = require('../app');
+const debug = require('debug')('backend:server'); // used to debug code
+const http = require('http');
 
 /**
  * Get port from environment and store in Express.
