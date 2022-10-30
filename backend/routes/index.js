@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const authenticator = require('../controllers/authenticators');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('landingpage');
+  let logged = false;
+  if(req.session.user){
+    logged = true;
+  }
+  res.render('landingpage', {logged});
 });
 
 router.get('/customerlogin', (req, res, nex) =>{
@@ -15,8 +18,16 @@ router.get('/employeelogin', (req, res, next)=>{
   res.render('employeelogin', {message: ''});
 });
 
-router.post('/customerlogin', authenticator.authcustomer);
+router.get('/logout', (req, res, next) => {
+  if(req.session.user){
+    req.session.destroy();
+    res.status(200).redirect('/');
+  }else{
+    res.status(400).redirect('/');
+  }
+});
 
+router.post('/customerlogin', authenticator.authcustomer);
 router.post('/employeelogin', authenticator.authemployee);
 
 

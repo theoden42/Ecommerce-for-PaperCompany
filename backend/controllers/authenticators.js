@@ -7,7 +7,6 @@ exports.authcustomer = async (req, res, next) => {
     if(!username || !password){
         return res.status(400).render('customerlogin', { message: 'Incomplete Credentials'});
     }
-
     
     db.query('SELECT user_id, pass, cust_id FROM accounts, customers WHERE user_id=? and cust_id=?', [username, username], (error, results)=>{
         if(error){
@@ -21,9 +20,12 @@ exports.authcustomer = async (req, res, next) => {
             return res.status(400).render('customerlogin', { message: 'Invalid Credentials'});
         }
         else{
-            return res.status(200).render('customerlogin', { message: 'you are logged in'});
+            const usr = {"type": "customer", "cust_id": username};
+            req.session.user = usr;
+            req.session.save();
+            return res.status(200).redirect('/');
         }
-    }) 
+    });
 };
 
 exports.authemployee = (req, res, next) => {
