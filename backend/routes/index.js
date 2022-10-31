@@ -4,10 +4,12 @@ const authenticator = require('../controllers/authenticators');
 
 router.get('/', (req, res, next) => {
   let logged = false;
+  let userType = "";
   if(req.session.user){
     logged = true;
+    userType = req.session.user.type;
   }
-  res.render('landingpage', {logged});
+  res.render('landingpage', {logged : logged, type : userType});
 });
 
 router.get('/customerlogin', (req, res, nex) =>{
