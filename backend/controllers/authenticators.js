@@ -21,6 +21,7 @@ exports.authcustomer = async (req, res, next) => {
         }
         else{
             const usr = {"type": "customer", "cust_id": username};
+            console.log(results);
             console.log(usr);
             req.session.user = usr;
             req.session.save();

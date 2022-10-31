@@ -26,6 +26,7 @@ exports.isEmployee = (req, res, next) => {
 exports.isManager = (req, res, next) => {
     if(!req.session.user){
         return res.status(400).redirect('/employeelogin');
+        //!todo : can give alert as to why redirected, better as UX
     }
     let user = req.session.user;
     if(user.type !== 'manager'){
