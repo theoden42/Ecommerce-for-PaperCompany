@@ -17,7 +17,7 @@ exports.isEmployee = (req, res, next) => {
     }
     let user = req.session.user;
     if(user.type !== 'employee' && user.type !== 'manager'){
-        return res.status(400).redirect('400forbidden');
+        return res.status(400).render('400forbidden');
     } else{
         return next();
     }
@@ -30,7 +30,7 @@ exports.isManager = (req, res, next) => {
     }
     let user = req.session.user;
     if(user.type !== 'manager'){
-        return res.status(400).redirect('400forbidden');
+        return res.status(400).render('400forbidden');
     } else{
         return next();
     }

@@ -44,7 +44,7 @@
       
               <div class="card" style="border-radius: 15px; padding: 50px;">
                 <div class="card-body">
-                    <form> 
+                    <form id="signupform" action="customercreate" method = "POST"> 
                         <div class="row align-items-center pt-4 pb-3">
                             <div class="col-md-3 ps-5">
                               <h6 class="mb-0">Username</h6>
@@ -52,13 +52,11 @@
                             </div>
                             <div class="col-md-9 pe-5">
               
-                              <input type="text" class="form-control form-control-lg"/>
+                              <input name="usernamefield" type="text" class="form-control form-control-lg"/>
 
                             </div>
                         </div>
-              
                           <hr class="mx-n3">
-              
                           <div class="row align-items-center py-3">
 
                             <div class="col-md-3 ps-5">
@@ -66,11 +64,10 @@
                             </div>
 
                             <div class="col-md-9 pe-5">
-                              <input type="text" class="form-control form-control-lg">
+                              <input name="fullnamefield" type="text" class="form-control form-control-lg">
               
                             </div>
                           </div>
-              
                           <hr class="mx-n3">
               
                           <div class="row align-items-center py-3">
@@ -80,7 +77,20 @@
               
                             </div>
                             <div class="col-md-9 pe-5">
-                                <input type="password" class="form-control form-control-lg"/>
+                                <input id="passwordfield" name="passwordfield" type="password" class="form-control form-control-lg"/>
+                            </div>
+                          </div>
+              
+                          <hr class="mx-n3">
+
+                          <div class="row align-items-center py-3">
+                            <div class="col-md-3 ps-5">
+              
+                              <h6 class="mb-0">Confirm Password</h6>
+              
+                            </div>
+                            <div class="col-md-9 pe-5">
+                                <input id="confirmpasswordfield" name="confirmpasswordfield" type="password" class="form-control form-control-lg"/>
                             </div>
                           </div>
               
@@ -91,7 +101,7 @@
                               <h6 class="mb-0">Mobile Number</h6>
                             </div>
                             <div class="col-md-9 pe-5">
-                                <input type="number" class="form-control form-control-lg"/>
+                                <input name="mobilenumberfield" type="number" class="form-control form-control-lg"/>
                             </div>
                           </div>
                         
@@ -102,7 +112,7 @@
                               <h6 class="mb-0">City</h6>
                             </div>
                             <div class="col-md-9 pe-5">
-                                <input type="text" class="form-control form-control-lg"/>
+                                <input name="cityfield" type="text" class="form-control form-control-lg"/>
                             </div>
                           </div>
 
@@ -113,7 +123,7 @@
                               <h6 class="mb-0">Company Name</h6>
                             </div>
                             <div class="col-md-9 pe-5">
-                                <input type="text" class="form-control form-control-lg"/>
+                                <input name="companynamefield" type="text" class="form-control form-control-lg"/>
                             </div>
                           </div>
 
@@ -124,14 +134,12 @@
                               <h6 class="mb-0">Shipping Address</h6>
                             </div>
                             <div class="col-md-9 pe-5">
-                                <textarea type="text" class="form-control form-control-lg"></textarea>
+                                <textarea name="shippingaddressfield" type="text" class="form-control form-control-lg"></textarea>
                             </div>
                           </div>
-
-
               
                           <div class="px-5 py-4">
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <button onclick="submitform()" class="btn btn-primary btn-lg">Submit</button>
                           </div>
                     </form>
                 </div>
@@ -140,9 +148,16 @@
           </div>
         </div>
     </div>
-
-
 </body>
+
+<script>
+  const submitform = () => {
+    const pass = document.getElementById('passwordfield');
+    const conpass = document.getElementById('confirmpasswordfield');
+    const form = document.getElementById('signupform');
+    form.submit();
+  };
+</script>
 
 
 </html>

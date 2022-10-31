@@ -10,6 +10,7 @@ router.get('/customercreate', privilege.isManager, (req, res, next) =>{
 router.get('/employeecreate', privilege.isManager, (req, res, next) =>{
     res.render('employeesignup');
 });
+
 router.post('/customercreate', privilege.isManager, creator.createCustomer);
 router.post('/customercreate', privilege.isManager, creator.createEmployee);
 
