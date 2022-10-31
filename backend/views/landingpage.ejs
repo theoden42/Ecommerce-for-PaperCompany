@@ -32,9 +32,11 @@
             <a href="Our Products">Our Products</a>
 
             <%if(logged === true) { %>
-                <% if (type = "manager") { %>
+                <% if (type == "manager") { %>
                     <a href="/manager/dashboard">Dashboard</a>
-                <% } %>
+                <% } else if(type == "employee") {%>
+                    <a href="/employee/dashboard">Dashboard</a>
+                <% } %> 
                 <a href="logout">Log Out (<%= type %> )</a>
             <%} else{ %>
                 <div class="dropdown">
