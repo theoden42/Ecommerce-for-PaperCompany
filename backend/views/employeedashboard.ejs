@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-    <title>Manager Dashboard</title>
+    <title>Employee Dashboard</title>
     <link rel="icon" href="images/companyicon.png">
     <link rel="stylesheet" href="/stylesheets/landingpage.css">
     <link rel="stylesheet" href="/stylesheets/navbar.css">
@@ -28,40 +28,12 @@
         </div>
 
         <div class="navlinks">
-            <a href="#">Manager Dashboard</a>
+            <a href="#">Employee Dashboard</a>
             <a href="./logout">Log Out (<%= type %> )</a>
         </div>
     </div>
     <div class="content">
-        <div class="row">
-            <div class="col-6">
-                <div class="row box" id="registerCustomer">
         
-                </div>
-                <div class="row box" id="employeeCompare">
-                    <h3 class="headings">Employee Performance</h2>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <th>Name</th>
-                                <th>Branch</th> 
-                                <th>Sales</th>
-                                <th>Target</th>
-                            </tr>
-                            <% empPerformance.forEach(emp => { %>
-                                <td><%= emp.name %></td>
-                                <td><%= emp.branch %></td>
-                                <td><%= emp.sales %></td>
-                                <td><%= emp.target %></td>
-                            <% }) %>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col box" id="registerEmployee">
-        
-            </div>
-        </div>
     </div>
     
 

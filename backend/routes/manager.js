@@ -15,11 +15,11 @@ router.post('/customercreate', privilege.isManager, creator.createCustomer);
 router.post('/customercreate', privilege.isManager, creator.createEmployee);
 
 router.get('/dashboard', privilege.isManager, (req, res, next) => {
-    db.query('SELECT name, branch, sales, target from accounts JOIN employees ON emp_id = user_id WHERE is_mgr = 0;', (error, results) => {
+    db.query('SELECT name, branch, sales, target from accounts JOIN employees ON emp_id = user_id WHERE is_mgr = 0 ORDER BY sales/target;', (error, results) => {
         if(error){
             throw error;
         }
-        res.render('managerdashboard', {type : req.session.user.type, empPerformance : results});
+        res.status(200).render('managerdashboard', {type : req.session.user.type, empPerformance : results});
     }) 
 });
 

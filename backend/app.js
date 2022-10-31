@@ -29,8 +29,8 @@ app.use(session({
 
 
 // Routes are defined here
-// app.use('/customer', customerRouter);
-// app.use('/employee', employeeRouter);
+app.use('/customer', customerRouter);
+app.use('/employee', employeeRouter);
 app.use('/manager', managerRouter);
 app.use('/', indexRouter);
 
