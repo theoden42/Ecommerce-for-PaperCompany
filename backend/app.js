@@ -11,6 +11,7 @@ const managerRouter = require('./routes/manager');
 const employeeRouter = require('./routes/employee');
 const customerRouter = require('./routes/customer');
 
+
 const app = express();
 
 //setting the view engine tpp ejs
