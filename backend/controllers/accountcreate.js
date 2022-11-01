@@ -48,24 +48,32 @@ exports.createEmployee = (req, res, next) =>{
     const cpass = req.body.confirmpasswordfield;
     const mobileno = req.body.mobilenofield;
     const city = req.body.cityfield;
-    const ismgr = req.body.ismgr;
-    const branch = req.body.branch;
+    const ismgr = req.body.ismanagerfield;
+    const branch = req.body.branchnamefield;
+
+    console.log(username, fullname, pass, cpass, mobileno, city, ismgr, branch);
     if(!username || !fullname || !pass || !cpass || !mobileno || !city || !ismgr || !branch){
         return res.status(400).render('employeesignup', { message: "Incomplete details"});
     }
     if(pass !== cpass){
         return res.status(400).render('employeesignup', { message: "passwords do not match"});
     }
-    let query1 = 'INSERT INTO employees VALUES(?, ?, ?)'
+    let query1 = 'INSERT INTO employees(emp_id, is_mgr, branch) VALUES(?, ?, ?)'
     let query2 = 'INSERT INTO accounts VALUES(?, ?, ?, ?, ?)';
     db.beginTransaction((err) => {
         if(err) throw err;
 
-        db.query(query1, [username, ismgr, branc], (err, results) => {
-            if(err) db.rollback((err) => {throw err;});
-        });
+        db.query(query1, [username, ismgr, branch], (err, results) => {
+            if(err){
+                db.rollback((err) => {throw err;});
+                console.log('error is here: query1');
+            }
+        }); 
         db.query(query2, [username, pass, mobileno, city], (err, results) => {
-            if(err) db.rollback((err) => {throw err;});
+            if(err){
+                db.rollback((err) => {throw err;});
+                console.log('error is here: query2');
+            } 
         });
 
         db.commit((err) => {
