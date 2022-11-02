@@ -28,7 +28,7 @@
         </div>
 
         <div class="navlinks">
-            <a href="#">Manager Dashboard</a>
+            <a href="">Manager Dashboard</a>
             <a href="./logout">Log Out (<%= type %> )</a>
         </div>
     </div>
@@ -36,7 +36,8 @@
         <div class="row">
             <div class="col-6">
                 <div class="row box" id="registerCustomer">
-        
+                    <a href="/manager/customercreate">Register New customer</a>
+                    
                 </div>
                 <div class="row box" id="employeeCompare">
                     <h3 class="headings">Employee Performance</h2>
@@ -59,7 +60,8 @@
                 </div>
             </div>
             <div class="col box" id="registerEmployee">
-        
+                <!-- <a href="/manager/employeecreate">Register New Employee</a> -->
+                <%- include('partials/empregister') %>
             </div>
         </div>
     </div>

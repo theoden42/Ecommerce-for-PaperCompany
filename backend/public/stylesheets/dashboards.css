@@ -13,7 +13,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    justify-content: flex-start;
     border: 2px solid white;
     border-radius: 4px;
     margin: 10px;
@@ -24,8 +25,22 @@ body{
 
 .headings{
     color: #00B7FF;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .table{
     color: white;
+}
+
+/* .regform{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    /* justify-content: center; */
+/* } */ 
+
+.btn-primary{
+    margin-top: 5px;
 }

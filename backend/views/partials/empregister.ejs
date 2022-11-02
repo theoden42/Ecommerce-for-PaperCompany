@@ -1,0 +1,55 @@
+<h2 class="headings">Register Employee</h2>
+<form action="employeecreate" method="POST" id="signupform">
+    <div class="form-group">
+        <input type="text" name="userid" id="userid" class="form-control" placeholder="User ID">
+    </div>
+    <div class="form-group">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Full Name">
+    </div>
+    <div class="form-group">
+        <input type="password" name="pass" id="userid" class="form-control" placeholder="Password">  
+    </div>
+    <div class="form-group">
+        <input type="password" name="confirmpass" id="pass" class="form-control" placeholder="Confirm Password">
+    </div>
+    <div class="form-group">
+        <input type="tel" name="phoneno" id="phoneno" class="form-control" placeholder="Phone Number" >
+    </div>
+    <div class="form-group">
+        <input type="text" name="city" id="city" class="form-control" placeholder="City">
+    </div>
+    <div class="form-group">
+        <input type="text" name="branch" id="branch" class="form-control" placeholder="Branch Name">
+    </div>
+    <div class="form-group">
+        <label for="emptype">Employee Type</label>
+        &nbsp;&nbsp;&nbsp;
+        <div class="form-check-inline">
+            <input type="radio" name="emptype" id="manager" class="form-check-input">
+            <label for="manager" class="form-check-label">Manager</label>
+            &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="emptype" id="regular" class="form-check-input">
+            <label for="regular" class="form-check-label">Regular</label>
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+        <label id="labelforinput" class="custom-file-label" for="inputGroupFile01">Upload Employee Photo</label>
+    </div>
+    <!-- <div class="form-group">
+        
+    
+        <!-- <div class=mb-3 id="fileinputstatus">
+              </div> 
+    </div> -->
+    <div class="form-group">
+        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+    </div>
+    <!-- btn-lg -->
+</form>
+<!-- <div class="regform">
+    
+</div> -->
