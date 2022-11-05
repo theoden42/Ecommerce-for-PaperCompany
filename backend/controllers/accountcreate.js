@@ -62,7 +62,6 @@ exports.createEmployee = (req, res, next) =>{
     const ismgr = req.body.ismanagerfield;
     const branch = req.body.branchnamefield;
 
-    console.log(username, fullname, pass, cpass, mobileno, city, ismgr, branch);
     if(!username || !fullname || !pass || !cpass || !mobileno || !city || !ismgr || !branch){
         req.session.message = 'Incomplete Details';
         return res.status(400).redirect('dashboard/emp');
