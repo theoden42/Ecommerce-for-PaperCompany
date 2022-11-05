@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+        <title>Manager Dashboard</title>
+        <link rel="icon" href="images/companyicon.png">
+        <link rel="stylesheet" href="/stylesheets/landingpage.css">
+        <link rel="stylesheet" href="/stylesheets/navbar.css">
+        <link rel="stylesheet" href="/stylesheets/dashboards.css">
+
+</head>
+
+<body class="body-styles">
+
+    <div class="navbar sticky-top">
+
+        <div class="logo">
+            <img src="/images/logo.png" alt="logo">
+        </div>
+
+        <div class="navlinks">
+            <a href="/">Home</a>
+            <a href="">Manager Dashboard</a>
+            <a href="./logout">Log Out (<%= type %> )</a>
+        </div>
+    </div>
+    
+    <div class="content">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Customer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/manager/dashboard/emp">Employee</a>
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col box" id="registerCustomer">
+                <!-- <a href="/manager/customercreate">Register New customer</a> -->
+                <%- include('partials/custregister'); %>
+            </div>
+            <div class="col box" id="custDetails">
+                <div class="sub-box">
+                    <%- include('partials/custdetails', {custDetails : custDetails}) %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footerscripts') %>
+    <script>
+        
+    </script>
+</body>
+
+</html>

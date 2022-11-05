@@ -20,23 +20,25 @@
         </div>
 
         <div class="navlinks">
+            <a href="/">Home</a>
             <a href="">Manager Dashboard</a>
             <a href="./logout">Log Out (<%= type %> )</a>
         </div>
     </div>
     <div class="content">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="/manager/dashboard/cust">Customer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Employee</a>
+            </li>
+        </ul>
         <div class="row">
-            <div class="col-md-6">
-                <div class="row box" id="registerCustomer">
-                    <a href="/manager/customercreate">Register New customer</a> 
-                    <%- include('partials/custregister'); %>
-                </div>
-                <div class="row box" id="employeeCompare">
-                    <div class="sub-box">
-                        <%- include('partials/empperformance', {empPerformance : empPerformance}) %>
-                    </div>
-                </div>  
-                
+            <div class="col box" id="employeeCompare">
+                <div class="sub-box">
+                    <%- include('partials/empperformance', {empPerformance : empPerformance}) %>
+                </div> 
             </div>
             <div class="col box" id="registerEmployee">
                 <!-- <a href="/manager/employeecreate">Register New Employee</a> -->

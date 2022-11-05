@@ -1,28 +1,28 @@
 <h2 class="headings">Register Customer</h2>
 <form action="customercreate" method="POST" id="signupform">
     <div class="form-group">
-        <input type="text" name="userid" id="userid" class="form-control" placeholder="User ID">
+        <input type="text" name="userid" id="userid" class="form-control" placeholder="User ID" required>
     </div>
     <div class="form-group">
-        <input type="text" name="name" id="name" class="form-control" placeholder="Full Name">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" required>
     </div>
     <div class="form-group">
-        <input type="password" name="pass" id="userid" class="form-control" placeholder="Password">  
+        <input type="password" name="pass" id="userid" class="form-control" placeholder="Password" required>  
     </div>
     <div class="form-group">
-        <input type="password" name="confirmpass" id="pass" class="form-control" placeholder="Confirm Password">
+        <input type="password" name="confirmpass" id="pass" class="form-control" placeholder="Confirm Password" required>
     </div>
     <div class="form-group">
-        <input type="tel" name="phoneno" id="phoneno" class="form-control" placeholder="Phone Number" >
+        <input type="tel" name="phoneno" id="phoneno" class="form-control" placeholder="Phone Number"  required>
     </div>
     <div class="form-group">
-        <input type="text" name="city" id="city" class="form-control" placeholder="City">
+        <input type="text" name="city" id="city" class="form-control" placeholder="City" required>
     </div>
     <div class="form-group">
-        <input type="text" name="company" id="company" class="form-control" placeholder="Company Name">
+        <input type="text" name="company" id="company" class="form-control" placeholder="Company Name" required>
     </div>
     <div class="form-group">
-        <textarea name="shippingaddr" class="form-control" id="shippingaddr" cols="30" rows="3" placeholder="Shipping Address"></textarea>
+        <textarea name="shippingaddr" class="form-control" id="shippingaddr" cols="30" rows="3" placeholder="Shipping Address" required></textarea>
     </div>
     <div class="form-group">
         <center><button type="submit" class="btn btn-primary">Submit</button></center>

@@ -1,0 +1,19 @@
+<h3 class="headings">Customer List</h2>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Mobile No</th> 
+            <th>Company</th>
+            <th>City</th>
+        </tr>
+        <% custDetails.forEach(cust => { %>
+            <tr>
+                <td><%= cust.name %></td>
+                <td><%= cust.mob_no %></td>
+                <td><%= cust.company %></td>
+                <td><%= cust.city %></td>
+            </tr>
+        <% }) %>
+    </table>
+</div>

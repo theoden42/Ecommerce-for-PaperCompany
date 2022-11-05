@@ -1,17 +1,19 @@
 <h3 class="headings">Employee Performance</h2>
-    <div class="table-responsive">
-        <table class="table">
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Branch</th> 
+            <th>Sales</th>
+            <th>Target</th>
+        </tr>
+        <% empPerformance.forEach(emp => { %>
             <tr>
-                <th>Name</th>
-                <th>Branch</th> 
-                <th>Sales</th>
-                <th>Target</th>
-            </tr>
-            <% empPerformance.forEach(emp => { %>
                 <td><%= emp.name %></td>
                 <td><%= emp.branch %></td>
                 <td><%= emp.sales %></td>
                 <td><%= emp.target %></td>
-            <% }) %>
-        </table>
-    </div>
+            </tr>
+        <% }) %>
+    </table>
+</div>
