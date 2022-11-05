@@ -1,34 +1,34 @@
 <h2 class="headings">Register Employee</h2>
-<form action="employeecreate" method="POST" id="signupform">
+<form action="../createEmployee" method="POST" id="signupform">
     <div class="form-group">
-        <input type="text" name="userid" id="userid" class="form-control" placeholder="User ID" required>
+        <input type="text" name="usernamefield" id="userid" class="form-control" placeholder="User ID" required>
     </div>
     <div class="form-group">
-        <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" required>
+        <input type="text" name="fullnamefield" id="name" class="form-control" placeholder="Full Name" required>
     </div>
     <div class="form-group">
-        <input type="password" name="pass" id="userid" class="form-control" placeholder="Password" required>  
+        <input type="password" name="passwordfield" id="userid" class="form-control" placeholder="Password" required>  
     </div>
     <div class="form-group">
-        <input type="password" name="confirmpass" id="pass" class="form-control" placeholder="Confirm Password" required>
+        <input type="password" name="confirmpasswordfield" id="pass" class="form-control" placeholder="Confirm Password" required>
     </div>
     <div class="form-group">
-        <input type="tel" name="phoneno" id="phoneno" class="form-control" placeholder="Phone Number" required>
+        <input type="tel" name="mobilenumberfield" id="phoneno" class="form-control" placeholder="Phone Number" required>
     </div>
     <div class="form-group">
-        <input type="text" name="city" id="city" class="form-control" placeholder="City" required>
+        <input type="text" name="cityfield" id="city" class="form-control" placeholder="City" required>
     </div>
     <div class="form-group">
-        <input type="text" name="branch" id="branch" class="form-control" placeholder="Branch Name" required>
+        <input type="text" name="branchnamefield" id="branch" class="form-control" placeholder="Branch Name" required>
     </div>
     <div class="form-group">
         <label for="emptype">Employee Type</label>
         &nbsp;&nbsp;&nbsp;
         <div class="form-check-inline">
-            <input type="radio" name="emptype" id="manager" class="form-check-input">
+            <input type="radio" name="ismanagerfield" value=1 id="manager" class="form-check-input">
             <label for="manager" class="form-check-label">Manager</label>
             &nbsp;&nbsp;&nbsp;
-            <input type="radio" name="emptype" id="regular" class="form-check-input">
+            <input type="radio" name="ismanagerfield" value=0 id="regular" class="form-check-input">
             <label for="regular" class="form-check-label">Regular</label>
         </div>
     </div>
@@ -42,6 +42,7 @@
     <div class="form-group">
         <center><button type="submit" class="btn btn-primary">Submit</button></center>
     </div>
+    
     <!-- btn-lg -->
 </form>
 <!-- <div class="regform">
