@@ -9,19 +9,19 @@ exports.createCustomer = async(req, res, next) =>{
     const city =  req.body.cityfield;
     const companyname = req.body.companynamefield;
     const shipaddress = req.body.shippingaddressfield;
-    console.log(username, fullname, pass, cpass, mobileno, city, companyname, shipaddress);
+
 
     if(!username || !fullname || !pass || !cpass || !mobileno || !city || !companyname || !shipaddress){
-        res.message = 'Incomplete Details';
+        req.session.message = 'Incomplete Details';
         return res.status(400).redirect('dashboard/cust');
     } 
     if(pass != cpass){
-        res.message = 'Passwords do not match';
+        req.session.message = 'Passwords do not match';
         return res.status(400).redirect('dashboard/cust');
     }
 
     let query1 = 'INSERT INTO accounts VALUES(?, ?, ?, ?, ?);'
-    let query2 = 'INSERT INTO customers(cust_id, company, shipping_address) VALUES(?, ?, ?);'
+    let query2 = 'INSERT INTO customers (cust_id, company, shipping_address) VALUES(?, ?, ?);'
 
     db.beginTransaction(err => {
         if(err){ 
@@ -51,7 +51,7 @@ exports.createCustomer = async(req, res, next) =>{
 
 }
 
-// TODO: needs to be tested
+
 exports.createEmployee = (req, res, next) =>{
     const username = req.body.usernamefield;
     const fullname = req.body.fullnamefield;

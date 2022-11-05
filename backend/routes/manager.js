@@ -13,7 +13,8 @@ router.get('/dashboard/emp', privilege.isManager, (req, res, next) => {
         if(error){
             throw error;  
         }
-        res.status(200).render('managerdashboardemp', {message: res.message, type : req.session.user.type, empPerformance : results});
+        res.status(200).render('managerdashboardemp', {message: req.session.message, type : req.session.user.type, empPerformance : results});
+        delete req.session.message;
     });
 });
 
@@ -22,7 +23,8 @@ router.get('/dashboard/cust', privilege.isManager, (req, res, next) => {
         if(error){
             throw error;
         }
-        res.status(200).render('managerdashboardcust', {message: res.message, type : req.session.user.type, custDetails : results});
+        res.status(200).render('managerdashboardcust', {message: req.session.message, type : req.session.user.type, custDetails : results});
+        delete req.session.message;
     });
 });
 
