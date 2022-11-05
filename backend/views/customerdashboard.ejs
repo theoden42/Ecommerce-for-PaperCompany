@@ -2,15 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatiwble" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <%- include('partials/head') %> 
     <title>Customer Dashboard</title>
     <link rel="icon" href="images/companyicon.png">
     <link rel="stylesheet" href="/stylesheets/landingpage.css">
@@ -28,46 +20,32 @@
         </div>
 
         <div class="navlinks">
+            <a href="/">Home</a>
             <a href="#">Customer Dashboard</a>
-            <a href="./logout">Log Out (<%= type %> )</a>
+            <a href="/logout">Log Out (<%= type %> )</a>
         </div>
     </div>
     <div class="content">
-        <!-- <div class="row">
-            <div class="col-6">
-                <div class="row box" id="registerCustomer">
-        
-                </div>
-                <div class="row box" id="employeeCompare">
-                    <h3 class="headings">Employee Performance</h2>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <th>Name</th>
-                                <th>Branch</th> 
-                                <th>Sales</th>
-                                <th>Target</th>
-                            </tr>
-                        </table>
+        <div class="row">
+            <div class="col">
+                <div class="row box">
+                    <div class="cust-details">
+    
+                    </div>
+                    <div class="order-links">
+                        
                     </div>
                 </div>
             </div>
-            <div class="col box" id="registerEmployee">
-        
-            </div>
-        </div> -->
-    </div>
+            <div class="col box">
+                <div class="your-orders">
     
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <%- include('partials/footerscripts') %> 
 
 </body>
 

@@ -49,6 +49,8 @@
                             <a class="dropdown-item" href="/employee/dashboard">Employee Dashboard</a>
                         </div>
                     </div>
+                <% } else if(type == "customer") {%>
+                    <a href="/customer/dashboard">Customer Dashboard</a>
                 <% } %> 
                 <a href="logout">Log Out (<%= type %> )</a>
             <%} else{ %>
