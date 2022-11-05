@@ -1,0 +1,22 @@
+<h3 class="headings">
+    Orders
+</h2>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Order ID</th>
+            <th>Product</th> 
+            <th>Quantity</th>
+            <th>Status</th>
+        </tr>
+        <% custOrders.forEach(ord => { %>
+            <%  let prod_type = ord.prod_id == 1? "Copy Paper" : ord.prod_id == 2 ? "Sticky Squares" : ord.prod_id == 3? "Yellow Paper" : "error"; %> 
+            <tr>
+                <td>#<%= ord.order_id %></td>
+                <td><%= prod_type %></td>
+                <td><%= ord.qty %></td>
+                <td><%= ord.status %></td>
+            </tr>
+        <% }); %>
+    </table>
+</div>

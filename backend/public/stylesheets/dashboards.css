@@ -31,6 +31,7 @@ body{
 }
 
 .headings{
+    align-self: center;
     color: #00B7FF;
     margin-top: 10px;
     margin-bottom: 15px;
@@ -71,4 +72,10 @@ input, form{
 .nav-tabs{
     width: fit-content;
     align-self: center;
+}
+
+.your-orders{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
 }
