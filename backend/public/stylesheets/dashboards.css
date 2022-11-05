@@ -6,19 +6,23 @@ body{
     padding: 2% 5%;
 }
 
-.box{
-    padding: 5px 0px;
-    margin: 5px 0px;
-    /* background: #ffffff7f; */
+.box, .sub-box{
     display: flex;
     flex-direction: column;
     align-items: center;
     /* justify-content: space-evenly; */
     justify-content: flex-start;
+}
+
+.box{
+    padding: 5px 0px;
+    margin: 5px 0px;
+    /* background: #ffffff7f; */
     border: 2px solid white;
     border-radius: 4px;
     margin: 10px;
     height: auto;
+    /* height: 100%; */
     width: auto;
     color: white;
 }
@@ -46,4 +50,13 @@ body{
 }
 .sub-box{
     width: 80%;
+}
+
+.form-group{
+    /* margin-bottom: 5px; */
+    width: 100%;
+}
+
+input, form{
+    width: 90%;
 }
