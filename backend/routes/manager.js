@@ -28,14 +28,12 @@ router.get('/dashboard/emp', privilege.isManager, (req, res, next) => {
 });
 
 router.get('/dashboard/cust', privilege.isManager, (req, res, next) => {
-    // console.log('reached cust dash');
     db.query('SELECT name, mob_no, company, city FROM accounts JOIN customers ON user_id = cust_id;', (error, results) => {
         if(error){
             throw error;
         }
         res.status(200).render('managerdashboardcust', {type : req.session.user.type, custDetails : results});
     });
-    // res.status(200).render('managerdashboardcust', {type : req.session.user.type, custDetails : results});
 });
 
 router.get('/logout', privilege.isManager, (req, res, next) =>{

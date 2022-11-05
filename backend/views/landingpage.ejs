@@ -32,10 +32,23 @@
             <a href="Our Products">Our Products</a>
 
             <%if(logged === true) { %>
-                <% if (type == "manager") { %>
-                    <a href="/manager/dashboard">Dashboard</a>
-                <% } else if(type == "employee") {%>
-                    <a href="/employee/dashboard">Dashboard</a>
+                <% if (type == "employee") { %>
+                    <a href="/employee/dashboard">Employee Dashboard</a>
+                <% } else if(type == "manager") {%>
+                    <div class="dropdown">
+                        <!-- <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/manager/dashboard">Manager Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/employee/dashboard">Employee Dashboard</a></li>
+                        </ul> -->
+                        <div class="dropdown-toggle">Dashboards</div>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="/manager/dashboard">Manager Dashboard</a>
+                            <a class="dropdown-item" href="/employee/dashboard">Employee Dashboard</a>
+                        </div>
+                    </div>
                 <% } %> 
                 <a href="logout">Log Out (<%= type %> )</a>
             <%} else{ %>
