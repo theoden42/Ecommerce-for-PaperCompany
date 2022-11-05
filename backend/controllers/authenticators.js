@@ -1,6 +1,6 @@
 const { db }  = require('../connectsql.js');
 
-exports.authcustomer = async (req, res, next) => {
+exports.authcustomer = (req, res, next) => {
     const username = req.body.usernamefield;
     const password = req.body.passwordfield;
 
