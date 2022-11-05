@@ -22,7 +22,7 @@
         <div class="navlinks">
             <a href="/">Home</a>
             <a href="">Manager Dashboard</a>
-            <a href="../logout">Log Out (<%= type %> )</a>
+            <a href="/logout">Log Out (<%= type %> )</a>
         </div>
     </div>
     
@@ -42,7 +42,7 @@
             </div>
             <div class="col box" id="custDetails">
                 <div class="sub-box">
-                    <%- include('partials/custdetails', {custDetails : custDetails}) %>
+                    <%- include('partials/custlist', {custDetails : custDetails}) %>
                 </div>
             </div>
         </div>
