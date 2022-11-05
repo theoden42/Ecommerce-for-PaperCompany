@@ -20,7 +20,7 @@ exports.authcustomer = (req, res, next) => {
             return res.status(400).render('customerlogin', { message: 'Invalid Credentials'});
         }
         else{
-            const usr = {"type": "customer", "cust_id": username};
+            const usr = {"type": "customer", "user_id": username};
             // console.log(results);
             req.session.user = usr;
             req.session.save();
@@ -49,7 +49,7 @@ exports.authemployee = (req, res, next) => {
             return res.status(400).render('employeelogin', { message: 'Invalid Credentials'});
         }
         else{
-            const usr = {"type": "employee", "cust_id": username};
+            const usr = {"type": "employee", "user_id": username};
             if(results[0].is_mgr == 1){
                 usr.type = "manager";
             }
