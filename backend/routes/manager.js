@@ -4,16 +4,6 @@ const privilege = require('../controllers/privilegemanager');
 const creator = require('../controllers/accountcreate');
 const { db }  = require('../connectsql.js');
 
-router.get('/customercreate', privilege.isManager, (req, res, next) =>{
-    res.render('customersignup');
-});
-router.get('/employeecreate', privilege.isManager, (req, res, next) =>{
-    res.render('employeesignup');
-});
-
-router.post('/customercreate', privilege.isManager, creator.createCustomer);
-router.post('/employeecreate', privilege.isManager, creator.createEmployee);
-
 router.get('/dashboard', privilege.isManager, (req, res, next) => {
     res.status(200).redirect('/manager/dashboard/cust');
 });
@@ -21,9 +11,9 @@ router.get('/dashboard', privilege.isManager, (req, res, next) => {
 router.get('/dashboard/emp', privilege.isManager, (req, res, next) => {
     db.query('SELECT name, branch, sales, target from accounts JOIN employees ON emp_id = user_id WHERE is_mgr = 0 ORDER BY sales/target;', (error, results) => {
         if(error){
-            throw error;
+            throw error;  
         }
-        res.status(200).render('managerdashboardemp', {type : req.session.user.type, empPerformance : results});
+        res.status(200).render('managerdashboardemp', {message: res.message, type : req.session.user.type, empPerformance : results});
     });
 });
 
@@ -32,12 +22,15 @@ router.get('/dashboard/cust', privilege.isManager, (req, res, next) => {
         if(error){
             throw error;
         }
-        res.status(200).render('managerdashboardcust', {type : req.session.user.type, custDetails : results});
+        res.status(200).render('managerdashboardcust', {message: res.message, type : req.session.user.type, custDetails : results});
     });
 });
 
-router.get('/logout', privilege.isManager, (req, res, next) =>{
-    res.status(200).redirect('/logout');
+router.post('/createCustomer', creator.createCustomer, (req, res, next) => {
+    res.status(200).redirect('/dashboard/cust');
+});
+router.post('/createEmployee', creator.createEmployee, (req, res, next) => {
+    res.status(200).redirect('/dashboard/emp');
 });
 
 

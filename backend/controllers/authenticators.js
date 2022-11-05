@@ -22,7 +22,6 @@ exports.authcustomer = (req, res, next) => {
         else{
             const usr = {"type": "customer", "cust_id": username};
             // console.log(results);
-            console.log(usr.cust_id + "logged in");
             req.session.user = usr;
             req.session.save();
             return res.status(200).redirect('/');
@@ -54,7 +53,6 @@ exports.authemployee = (req, res, next) => {
             if(results[0].is_mgr == 1){
                 usr.type = "manager";
             }
-            console.log(usr);
             req.session.user = usr;
             req.session.save();
             return res.status(200).redirect('/');

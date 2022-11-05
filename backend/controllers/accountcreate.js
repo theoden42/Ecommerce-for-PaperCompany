@@ -9,12 +9,15 @@ exports.createCustomer = async(req, res, next) =>{
     const city =  req.body.cityfield;
     const companyname = req.body.companynamefield;
     const shipaddress = req.body.shippingaddressfield;
+    console.log(username, fullname, pass, cpass, mobileno, city, companyname, shipaddress);
 
     if(!username || !fullname || !pass || !cpass || !mobileno || !city || !companyname || !shipaddress){
-        return res.status(400).render('customersignup', { message: "Incomplete details"});
+        res.message = 'Incomplete Details';
+        return res.status(400).redirect('dashboard/cust');
     } 
     if(pass != cpass){
-        return res.status(400).render('customersignup', { message: "Passwords Do not match"});
+        res.message = 'Passwords do not match';
+        return res.status(400).redirect('dashboard/cust');
     }
 
     let query1 = 'INSERT INTO accounts VALUES(?, ?, ?, ?, ?);'
@@ -40,7 +43,7 @@ exports.createCustomer = async(req, res, next) =>{
                         db.rollback(() => { console.log(err)});
                         return res.status(500).render('500serverissue');
                     }
-                    return res.status(200).redirect('/dashboard');
+                    return res.status(200).redirect('dashboard/cust');
                 });
             });
         });

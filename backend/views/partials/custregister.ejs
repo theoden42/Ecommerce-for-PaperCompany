@@ -1,34 +1,35 @@
 <h2 class="headings">Register Customer</h2>
-<form action="customercreate" method="POST" id="signupform">
+<form action="../createCustomer" method="POST" id="signupform">
     <div class="form-group">
-        <input type="text" name="userid" id="userid" class="form-control" placeholder="User ID" required>
+        <input type="text" name="usernamefield" id="userid" class="form-control" placeholder="User ID" required>
     </div>
     <div class="form-group">
-        <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" required>
+        <input type="text" name="fullnamefield" id="name" class="form-control" placeholder="Full Name" required>
     </div>
     <div class="form-group">
-        <input type="password" name="pass" id="userid" class="form-control" placeholder="Password" required>  
+        <input type="password" name="passwordfield" id="userid" class="form-control" placeholder="Password" required>  
     </div>
     <div class="form-group">
-        <input type="password" name="confirmpass" id="pass" class="form-control" placeholder="Confirm Password" required>
+        <input type="password" name="confirmpasswordfield" id="pass" class="form-control" placeholder="Confirm Password" required>
     </div>
     <div class="form-group">
-        <input type="tel" name="phoneno" id="phoneno" class="form-control" placeholder="Phone Number"  required>
+        <input type="tel" name="mobilenumberfield" id="phoneno" class="form-control" placeholder="Phone Number"  required>
     </div>
     <div class="form-group">
-        <input type="text" name="city" id="city" class="form-control" placeholder="City" required>
+        <input type="text" name="cityfield" id="city" class="form-control" placeholder="City" required>
     </div>
     <div class="form-group">
-        <input type="text" name="company" id="company" class="form-control" placeholder="Company Name" required>
+        <input type="text" name="companynamefield" id="company" class="form-control" placeholder="Company Name" required>
     </div>
     <div class="form-group">
-        <textarea name="shippingaddr" class="form-control" id="shippingaddr" cols="30" rows="3" placeholder="Shipping Address" required></textarea>
+        <textarea name="shippingaddressfield" class="form-control" id="shippingaddr" cols="30" rows="3" placeholder="Shipping Address" required></textarea>
     </div>
     <div class="form-group">
         <center><button type="submit" class="btn btn-primary">Submit</button></center>
     </div>
-    <!-- btn-lg -->
+    <% if(message){ %>
+        <div style="color: red"><%= message %></div>
+    <% } %>
 </form>
-<!-- <div class="regform">
+
     
-</div> -->
