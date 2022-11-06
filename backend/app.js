@@ -22,7 +22,7 @@ app.use(bodyparser.urlencoded({extended:false})); // helps to parse request body
 app.use(bodyparser.json());
 app.use(express.static(path.join(__dirname, 'public'))); // serves static files
 app.use(session({
-    secret: 'secret-key',
+    secret: process.env.SESSION_SECRET,
     resave: 'false',
     saveUninitialized : 'false'
 })); // used to use sessions

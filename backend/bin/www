@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+require('dotenv').config();
 const app = require('../app');
 const debug = require('debug')('backend:server'); // used to debug code
 const http = require('http');
+
 
 /**
  * Get port from environment and store in Express.
