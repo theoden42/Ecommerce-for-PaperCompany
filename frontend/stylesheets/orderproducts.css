@@ -1,0 +1,38 @@
+.body-styles{
+    background-color: #0C2D48;
+}
+
+.products-list{
+    padding: 20px;
+}
+
+.card{
+    background-color: whitesmoke;
+    font: Poppins, sans-serif;  
+    border-radius: 50px;
+    padding: 5px;
+    box-shadow: 1px 2px 3px 4px rgb(10, 1, 53);
+    width: 500px;
+}
+
+.prodtitle{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 200px;
+}
+
+.prodimage{
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+}
+
+.prodimage img{
+    width: 100%;   
+    height: 250px;
+    border-radius: 25px;  
+
+    
+}
