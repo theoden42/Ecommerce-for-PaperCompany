@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authenticator = require('../controllers/authenticators');
+const privilegemanagers = require('../controllers/privilegemanager');
 
 router.get('/', (req, res, next) => {
   let logged = false;
@@ -31,7 +32,9 @@ router.get('/logout', (req, res, next) => {
 
 router.post('/customerlogin', authenticator.authcustomer);
 router.post('/employeelogin', authenticator.authemployee);
-
+router.get('/orderproduct', privilegemanagers.isCustomer, (req, res, next) => {
+  res.send('orderproduct');
+});
 
 
 router.all('*', (req, res, next)=>{
