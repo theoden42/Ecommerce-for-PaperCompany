@@ -36,7 +36,6 @@ router.get('/orderproduct', privilegemanagers.isCustomer, (req, res, next) => {
   res.send('orderproduct');
 });
 
-
 router.all('*', (req, res, next)=>{
   res.render('404error');
 });

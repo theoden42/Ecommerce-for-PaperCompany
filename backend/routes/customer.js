@@ -12,4 +12,11 @@ router.get('/dashboard', privilege.isCustomer, (req, res, next) => {
     
 });
 
+router.get('/orderproduct', privilege.isCustomer, (req, res, next) => {
+    db.query('SELECT * FROM products;', (error, results)=>{
+        if(error) throw error;
+        res.status(200).render('orderproducts', { products : results });
+    });
+});
+
 module.exports = router;
