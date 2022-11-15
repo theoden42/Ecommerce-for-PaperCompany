@@ -14,12 +14,12 @@
 
     <div class="navbar sticky-top">
         <div class="logo">
-            <img src="./images/logo.png" alt="logo">
+            <img src="/images/logo.png" alt="logo">
         </div>
         <div class="navlinks">
             <a href="/">Home</a>
             <div class="dropdown">
-                <a href="logout">Logout</a>
+                <a href="/logout">Logout</a>
             </div>
             
         </div>
@@ -34,21 +34,21 @@
         <% for (let i = 0; i < products.length; i++) { %>
             <div class="card">
                 <div class="prodimage">
-                    <img src= <%= products[i].image %> alt="photopaper">
+                    <img src= <%= products[i].imglink %> alt="photopaper">
                 </div>  
                 <div class="prodtitle">
                     <%= products[i].name %>
                 </div>
                 
                 <div class="proddesc">
-                    <%= products[i].description %>
+                    <%= products[i].details%>
                 </div>
                 <div class="proddetails">
                     <div class="prodstock">
                         Stock: <span><%= products[i].stock %></span>
                     </div>
                     <div class="prodprice">
-                        Rs. <span><%= products[i].price %></span>
+                        Rs. <span><%= products[i].rate %></span>
                     </div>
                 </div>
 
