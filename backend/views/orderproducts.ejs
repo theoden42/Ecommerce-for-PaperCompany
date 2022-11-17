@@ -4,7 +4,7 @@
 <head>
     <%- include('partials/head'); %>
         <title>Order Products</title>
-        <link rel="icon" href="images/companyicon.png">
+        <link rel="icon" href="/images/companyicon.png">
         <link rel="stylesheet" href="/stylesheets/navbar.css">
         <link rel="stylesheet" href="/stylesheets/orderproducts.css">
 
@@ -53,7 +53,8 @@
                 </div>
 
                 <div class="orderbutton">
-                    <button onclick= orderproduct() >Order Now!</button>
+                    <button onclick = "createOrder('<%= products[i].prod_id %>')">Order Now!
+                    </button>
                 </div>
             </div>
         <% } %>
@@ -61,6 +62,8 @@
     </section>
 
     <%- include('partials/footerscripts') %>
+
+    <script src="/javascripts/orderprocess.js"> </script>
 
 </body>
 
