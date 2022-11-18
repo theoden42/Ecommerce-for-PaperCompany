@@ -1,0 +1,102 @@
+.body-styles{
+    background-color: #0C2D48;
+}
+
+.products-list{
+    width: 100%;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+}
+
+.heading{
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    padding: 20px; 
+    vertical-align: center;
+}
+
+.card{
+    height: 450px;
+    width: 300px;
+    background-color: whitesmoke;
+    font: Poppins, sans-serif;  
+    box-shadow: 1px 2px 3px 4px rgb(10, 5, 32);
+}
+
+.prodimage{
+    width: 100%;
+    height: 250px;
+    padding: 0px;
+    border: none;
+    display: block;
+}
+
+.prodimage img{
+    width: 100%; 
+    height: 100%;
+    border: none; 
+    object-fit: cover;
+}
+
+.prodtitle{
+    text-align: center; 
+    font-size: 25px;
+    font-weight: 150px;
+}
+
+.proddesc{
+    padding: 0px;
+    text-align: center; 
+    font-size: 15px;
+    font-weight: 100px;
+}
+
+.proddetails{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;  
+}
+
+
+.prodprice{
+    padding:0px;
+    width: 100px;
+    color: green;
+    text-align: center;
+    vertical-align: center;
+}
+.prodprice > span{
+    font-size: 25px;
+}
+
+.prodstock{
+    padding: 0px;
+    width: 100px;
+    color: red;
+    text-align: center;
+    vertical-align: center;
+}
+.prodstock > span{
+    font-size: 25px;
+}
+
+.orderbutton{
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+}
+.orderbutton > button{
+    width: 100%;
+    border: none;
+    background-color: blue; 
+    color: white;
+    height: 100%;
+}
+
+
+
+

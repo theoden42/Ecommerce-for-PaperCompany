@@ -29,7 +29,7 @@
         </div>
 
         <div class="navlinks">
-            <a href="Our Products">Our Products</a>
+            <a href="/customer/orderproduct">Our Products</a>
 
             <%if(logged === true) { %>
                 <% if (type == "employee") { %>
@@ -103,37 +103,27 @@
                 </div>
                 <div class="container">
                     <center>
-                        <h1>Our Products</h1>
+                        <h1>Our Top-Selling Products</h1>
                     </center>
                     <div class="productHead">
                         <div class="products">
-                            <div class="product_image">
-                                <img src="./images/copy-paper.jpg" alt="">
-                                <h3>Premium Copy Paper</h3>
-                                <p>For writing on</p>
-                                <p>Price: 20$</p>
-                                <button type="button" class="btn btn-primary btn-lg">Buy Now</button>
-                            </div>
+                            <img src="./images/products/product1.jpeg" alt="product1">
+                            <h3>Brown Papers</h3>
+                            
                         </div>
                         <div class="products">
-                            <div class="product_image">
-                                <img src="./images/sticky-notes.webp" alt="">
-                                <h3>Sticky Squares</h3>
-                                <p>Place small notes anywhere</p>
-                                <p>Price: 30$</p>
-                                <button type="button" class="btn btn-primary btn-lg">Buy Now</button>
-                            </div>
+                            <img src="./images/products/product2.jpeg" alt="product2">
+                            <h3>Recycled Papers</h3>
+                            
                         </div>
                         <div class="products">
-                            <div class="product_image">
-                                <img src="./images/yellow-paper.webp" alt="">
-                                <h3>Yellow Paper - Lined</h3>
-                                <p>Note taking paper</p>
-                                <p>Price: 10$</p>
-                                <button type="button" class="btn btn-primary btn-lg">Buy Now</button>
-                            </div>
+                            <img src="./images/products/product3.jpeg" alt="product3">
+                            <h3>Scrap Papers</h3>
                         </div>
                     </div>
+                    <center>
+                        <a href="Our Products" id="viewMore" class="btn btn-primary">View More Products</a>
+                    </center>
                 </div>
             </div>
 
@@ -146,14 +136,13 @@
                     <div class="login">
                         <h3 class="loginh">Are you an Employee ?</h3><br>
                         <img src="./images/employee.png" id="empImg" alt="" width="150px"><br>
-                        <button type="button" class="btn btn-secondary" id="loginEmp"><a href="employeelogin"> Employee Login </a></button>
+                        <a href="employeelogin"><button type="button" class="btn btn-secondary" id="loginEmp"> Employee Login</button></a>
                     </div>
 
                     <div class="login">
                         <h3 class="loginh">Are you a Customer ?</h3><br>
                         <img src="./images/customer.png" id="custImg" alt="" width="150px"><br>
-                        <button type="button" class="btn btn-secondary" height="100px" id="loginCust"><a
-                                href="customerlogin"> Customer Login </a></button>
+                        <a href="customerlogin"><button type="button" class="btn btn-secondary" height="100px" id="loginCust"> Customer Login</button></a>
                     </div>
                 </div>
             </div>
