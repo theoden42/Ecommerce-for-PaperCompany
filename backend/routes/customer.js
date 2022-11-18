@@ -12,4 +12,13 @@ router.get('/dashboard', privilege.isCustomer, (req, res, next) => {
     
 });
 
+router.get('/order', privilege.isCustomer, (req, res, next)=>{
+    //need to pass accurate quantity info
+    res.status(200).render('custplaceorder', {type : req.session.user.type});
+});
+
+router.post('/order', privilege.isCustomer, (req, res, next)=>{
+
+});
+
 module.exports = router;

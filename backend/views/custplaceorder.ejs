@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %> 
+    <title>Place Orders</title>
+    <link rel="icon" href="images/companyicon.png">
+    <link rel="stylesheet" href="/stylesheets/landingpage.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/dashboards.css">
+</head>
+
+<body class="body-styles">
+
+    <div class="navbar sticky-top">
+
+        <div class="logo">
+            <img src="/images/logo.png" alt="logo">
+        </div>
+
+        <div class="navlinks">
+            <a href="/">Home</a>
+            <a href="/customer/dashboard">Customer Dashboard</a>
+            <a href="/logout">Log Out (<%= type %> )</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="col box">
+            
+        </div>
+    </div>
+    <%- include('partials/footerscripts') %> 
+
+</body>
+
+</html>
