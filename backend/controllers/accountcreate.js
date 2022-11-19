@@ -61,8 +61,9 @@ exports.createEmployee = (req, res, next) =>{
     const city = req.body.cityfield;
     const ismgr = req.body.ismanagerfield;
     const branch = req.body.branchnamefield;
+    const target = ismgr == 0? req.body.targetfield : null;
 
-    if(!username || !fullname || !pass || !cpass || !mobileno || !city || !ismgr || !branch){
+    if(!username || !fullname || !pass || !cpass || !mobileno || !city || !ismgr || !branch || (ismgr == 0 && !target)){
         req.session.message = 'Incomplete Details';
         return res.status(400).redirect('dashboard/emp');
     }
@@ -72,7 +73,8 @@ exports.createEmployee = (req, res, next) =>{
     }
 
     let query1 ='INSERT INTO accounts VALUES(?, ?, ?, ?, ?)';
-    let query2 = 'INSERT INTO employees(emp_id, is_mgr, branch ) VALUES(?, ?, ?)';
+    let query2 = 'INSERT INTO employees(emp_id, is_mgr, branch) VALUES(?, ?, ?)';
+    let query3 = 'INSERT INTO employees(emp_id, is_mgr, branch ,sales, target) VALUES(?, ?, ?,0, ?)';
 
     db.beginTransaction(err => {
         if(err){ 
@@ -84,7 +86,7 @@ exports.createEmployee = (req, res, next) =>{
                 db.rollback(() => { console.log(err) });
                 return res.status(500).render('500serverissue');
             }
-            db.query(query2, [username, ismgr, branch], (err, results) =>{
+            db.query(ismgr == 0? query3 : query2, ismgr == 0? [username, ismgr, branch, target] : [username, ismgr, branch], (err, results) =>{
                 if(err){
                      db.rollback(() => { console.log});
                      return res.status(500).render('500serverissue');

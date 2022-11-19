@@ -22,23 +22,44 @@
         <input type="text" name="branchnamefield" id="branch" class="form-control" placeholder="Branch Name" required>
     </div>
     <div class="form-group">
-        <label for="emptype">Employee Type</label>
-        &nbsp;&nbsp;&nbsp;
-        <div class="form-check-inline">
-            <input type="radio" name="ismanagerfield" value=1 id="manager" class="form-check-input">
-            <label for="manager" class="form-check-label">Manager</label>
-            &nbsp;&nbsp;&nbsp;
-            <input type="radio" name="ismanagerfield" value=0 id="regular" class="form-check-input">
-            <label for="regular" class="form-check-label">Regular</label>
+        <div class="row">
+            <div class="col-auto">
+                <label for="emptype">Employee Type</label>
+                &nbsp;&nbsp;&nbsp;
+                <div class="form-check-inline">
+                    <input type="radio" name="ismanagerfield" value=1 id="manager" class="form-check-input ismgr">
+                    <label for="manager" class="form-check-label">Manager</label>
+                    &nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="ismanagerfield" value=0 id="regular" class="form-check-input ismgr">
+                    <label for="regular" class="form-check-label">Regular</label>
+                </div>
+            </div>
+            <div class="col-5">
+                <span id="setTarget">
+                    <input type="text" name="targetfield" id="targettargetfield" class="form-control" placeholder="Sales Target">
+                </span>
+            </div>
         </div>
+        
+        
+        
     </div>
-    <!-- <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-        </div>
-        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-        <label id="labelforinput" class="custom-file-label" for="inputGroupFile01">Upload Employee Photo</label>
-    </div> -->
+    <script>
+        // toggles sales target input visibility for employees
+        let emptyperegular = document.querySelector("#regular");
+        let ismgrradio = document.querySelectorAll(".ismgr");
+        let targetspan = document.querySelector("#setTarget");
+        targetspan.style.display = 'none';
+        ismgrradio.forEach(input => {
+            input.addEventListener('click', ()=>{
+                if(emptyperegular.checked == true){
+                    targetspan.style.display = 'inline';
+                }
+                else targetspan.style.display = 'none';
+            });
+        });
+        
+    </script>
     <div class="form-group">
         <center><button type="submit" class="btn btn-primary">Submit</button></center>
     </div>
