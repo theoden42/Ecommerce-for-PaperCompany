@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const privilege = require('../controllers/privilegemanager');
+const ordermanager = require('../controllers/ordermanager');
 const { db }  = require('../connectsql.js');
 
 router.get('/dashboard', privilege.isCustomer, (req, res, next) => {
@@ -18,5 +19,7 @@ router.get('/orderproduct', privilege.isCustomer, (req, res, next) => {
         res.status(200).render('orderproducts', { products : results });
     });
 });
+
+router.get('/createorder', privilege.isCustomer, ordermanager.handleOrder);
 
 module.exports = router;
