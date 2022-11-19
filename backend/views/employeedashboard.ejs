@@ -26,17 +26,52 @@
         </div>
     </div>
     <div class="content">
-        <div class="row">
-            <div class="col box">
-                <div class="order-listing">
-    
+        
+        
+        <div class="col">
+            <div class="row">
+                <div class="col box">
+                    <div class="unassigned-order-listing">
+                        <h3 class="headings">Unassigned Orders</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Product ID</th> 
+                                        <th>Customer</th>
+                                        <th>Quantity</th>
+                                        <th></th>
+                                    </tr>
+                                    <% unassigned.forEach(order => { %>
+                                        <tr>
+                                            <td><%= order.order_id %></td>
+                                            <td><%= order.prod_id %></td>
+                                            <td><%= order.cust_id.slice(0,2) + "*".repeat(order.cust_id.length - 2) %></td>
+                                            <td><%= order.qty %></td>
+                                            <td><button class="btn btn-outline-primary btn-sm">Assign Self</button></td>
+                                        </tr>
+                                    <% }); %>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-5 box">
+                    <div class="emp-details">
+                        <h4 class="headings">Employee Details</h4>
+                        Name : <%= empDetails[0].name %> <br> 
+                        Mobile number : <%= empDetails[0].mob_no %>  <br> 
+                        Branch : <%= empDetails[0].branch %>  <br> 
+                        <% if (empDetails[0].is_mgr == 0) { %>
+                            Sales : <%= empDetails[0].sales %>  <br> 
+                            Target : <%= empDetails[0].target %>  <br> 
+                            % of goal : <%= (empDetails[0].sales/empDetails[0].target)*100 %>  <br> 
+                        <% } %> 
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="row box">
-                    <div class="emp-details">
-    
-                    </div>
+            <div class="row box">
+                <div class="my-assigned-orders">
+
                 </div>
             </div>
         </div>
@@ -47,3 +82,4 @@
 </body>
 
 </html>
+
