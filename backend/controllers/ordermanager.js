@@ -22,8 +22,8 @@ exports.handleOrder = (req, res, next) =>{
                 if(err){
                     db.rollback(() => {
                         console.log(err);
-                        return res.render('500serverissue');
                     });
+                    return res.status.render('500serverissue');
                 }
                 const query1 = 'INSERT INTO orders (cust_id, prod_id, qty, status) VALUES(?, ?, ?, "pending");';
                 const query2 = 'UPDATE products SET stock=stock-? WHERE prod_id=?;';
@@ -32,22 +32,22 @@ exports.handleOrder = (req, res, next) =>{
                     if(err){
                         db.rollback(()=>{
                             console.log(err);
-                            return res.render('500serverissue');
                         });
+                        return res.status(500).render('500serverissue');
                     }
                     db.query(query2, [qty, prodid], (err, results) => {
                         if(err){
                             db.rollback(()=>{
                                 console.log(err);
-                                return res.render('500serverissue');
                             });
+                            return res.status(500).render('500serverissue');
                         }
                         return db.commit(err => {
                             if(err){
                                 db.rollback(()=>{
                                     console.log(err);
-                                    return res.render('500serverissue');
                                 });
+                                return res.status(500).render('500serverissue');
                             }
                             return res.status(200).redirect('dashboard');
                         });
