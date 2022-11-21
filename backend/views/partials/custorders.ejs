@@ -10,10 +10,9 @@
             <th>Status</th>
         </tr>
         <% custOrders.forEach(ord => { %>
-            <%  let prod_type = ord.prod_id == 1? "Copy Paper" : ord.prod_id == 2 ? "Sticky Squares" : ord.prod_id == 3? "Yellow Paper" : "error"; %> 
             <tr>
                 <td>#<%= ord.order_id %></td>
-                <td><%= prod_type %></td>
+                <td><%= ord.name %></td>
                 <td><%= ord.qty %></td>
                 <td><%= ord.status %></td>
             </tr>
