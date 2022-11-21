@@ -79,3 +79,7 @@ input, form{
     flex-direction: column;
     width: 90%;
 }
+
+.muted{
+    color: #bbbdbd;
+}

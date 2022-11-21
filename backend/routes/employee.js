@@ -11,14 +11,15 @@ router.get('/dashboard', privilege.isEmployee, (req, res, next) => {
     db.query('SELECT * FROM `orders` WHERE `assigned` IS NULL;', (error, result1) => {
         if (error) throw error;
         else {
-            db.query('SELECT * FROM `orders` WHERE `assigned` = ?;', [userid], (error, result2) => {
+            db.query('SELECT order_id, products.name AS prod_name, qty, accounts.name AS cust_name, customers.company, customers.shipping_address, accounts.mob_no, orders.status FROM `orders` JOIN `accounts` ON orders.cust_id = accounts.user_id JOIN `products` ON orders.prod_id = products.prod_id JOIN `customers` ON customers.cust_id = orders.cust_id WHERE `assigned` = ?;', 
+            [userid], (error, result2) => {
                 if (error) throw error;
                 else {
                     db.query('SELECT emp_id, name, mob_no, branch, target, sales, is_mgr FROM `accounts` JOIN `employees` ON accounts.user_id = employees.emp_id WHERE user_id = ?;'
                         , [userid], (error, result3) => {
                             if (error) throw error;
                             else {
-                                console.log(result3);
+                                console.log(result2);
                                 res.status(200).render('employeedashboard',
                                     { 
                                         type: req.session.user.type, 
