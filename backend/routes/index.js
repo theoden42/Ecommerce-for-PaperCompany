@@ -12,7 +12,6 @@ router.get('/', (req, res, next) => {
   }
   res.render('landingpage', {logged : logged, type : userType});
 });
-
 router.get('/customerlogin', (req, res, nex) =>{
   res.render('customerlogin', {message: ''});
 });
@@ -20,7 +19,6 @@ router.get('/customerlogin', (req, res, nex) =>{
 router.get('/employeelogin', (req, res, next)=>{
   res.render('employeelogin', {message: ''});
 });
-
 router.get('/logout', (req, res, next) => {
   if(req.session.user){
     req.session.destroy();

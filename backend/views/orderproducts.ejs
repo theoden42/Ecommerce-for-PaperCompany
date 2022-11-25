@@ -53,13 +53,27 @@
                 </div>
 
                 <div class="orderbutton">
-                    <button onclick = "createOrder('<%= products[i].prod_id %>')">Order Now!
+                    <button onclick = "createOrder('<%= products[i].prod_id %>', '<%=products[i].stock %>')">Order Now!
                     </button>
                 </div>
             </div>
         <% } %>
 
+        <div id="formpopup" class="modal hidden">
+            <div class="flex">
+                <button class="btn-close" onclick="closemodal()">⨉</button>
+            </div>
+            <div style="text-align:center;">
+            <h4>Please enter the quantity you want to order!!</h4>
+            </div>
+            
+            <input type="number" min="1" id="prodqty" placeholder="1" />
+            <button class="btn" onclick="finalorder()">Order!  </button>
+        </div>
+    
+        <div class="overlay hidden"></div>
     </section>
+
 
     <%- include('partials/footerscripts') %>
 
