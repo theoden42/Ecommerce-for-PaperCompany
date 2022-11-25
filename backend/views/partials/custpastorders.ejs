@@ -1,0 +1,21 @@
+<h3 class="headings">
+    Past Orders
+</h2>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Order ID</th>
+            <th>Product</th> 
+            <th>Quantity</th>
+        </tr>
+        <% custOrders.forEach(ord => { %>
+            <% if (ord.status == 'recieved') { %>
+                <tr>
+                    <td>#<%= ord.order_id %></td>
+                    <td><%= ord.name %></td>
+                    <td><%= ord.qty %></td>
+                </tr>
+            <% } %>
+        <% }); %>
+    </table>
+</div>

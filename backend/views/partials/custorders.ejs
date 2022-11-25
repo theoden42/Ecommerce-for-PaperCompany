@@ -1,5 +1,5 @@
 <h3 class="headings">
-    Orders
+    Ongoing Orders
 </h2>
 <div class="table-responsive">
     <table class="table">
@@ -10,12 +10,14 @@
             <th>Status</th>
         </tr>
         <% custOrders.forEach(ord => { %>
+            <% if (ord.status != 'recieved') { %>
             <tr>
                 <td>#<%= ord.order_id %></td>
                 <td><%= ord.name %></td>
                 <td><%= ord.qty %></td>
                 <td><%= ord.status %></td>
             </tr>
+            <% } %>
         <% }); %>
     </table>
 </div>
