@@ -7,8 +7,11 @@ const { db }  = require('../connectsql.js');
 router.get('/dashboard', privilege.isCustomer, (req, res, next) => {
     db.query('SELECT order_id, name, qty, status FROM `orders` JOIN `products` ON orders.prod_id = products.prod_id WHERE cust_id = ? ORDER BY status ASC, order_id DESC;', [req.session.user.user_id] , (error, results)=>{
         if(error) throw error;
+        db.query('SELECT cust_id, name, mob_no, city, shipping_address FROM `accounts` JOIN customers ON customers.cust_id = accounts.user_id WHERE cust_id = ?;', [req.session.user.user_id], (errors, results1) => {
+            if(errors) throw errors;
+            res.status(200).render('customerdashboard', {type : req.session.user.type, custOrders : results, custDetails : results1});
 
-        res.status(200).render('customerdashboard', {type : req.session.user.type, custOrders : results});
+        });
     });
     
 });
