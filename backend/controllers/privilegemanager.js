@@ -23,6 +23,18 @@ exports.isEmployee = (req, res, next) => {
     }
 }
 
+exports.isRegEmployee = (req, res, next) => {
+    if(!req.session.user){
+        return res.status(400).redirect('/employeelogin');
+    }
+    let user = req.session.user;
+    if(user.type !== 'employee'){
+        return res.status(400).render('400forbidden');
+    } else{
+        return next();
+    }
+}
+
 exports.isManager = (req, res, next) => {
     if(!req.session.user){
         return res.status(400).redirect('/employeelogin');

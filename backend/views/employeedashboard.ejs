@@ -31,7 +31,7 @@
         <div class="col">
             <div class="row">
                 <div class="col box">
-                    <div class="unassigned-order-listing">
+                    <div class="unassigned-order-listing overflow-auto">
                         <h3 class="headings">Unassigned Orders</h3>
                             <div class="table-responsive">
                                 <table class="table">
@@ -39,16 +39,20 @@
                                         <th>Order ID</th>
                                         <th>Product ID</th> 
                                         <th>Customer</th>
-                                        <th>Quantity</th>
-                                        <th></th>
+                                        <th>Status</th>
+                                        <% if (type == 'employee') { %>
+                                            <th></th>
+                                        <% } %> 
                                     </tr>
                                     <% unassigned.forEach(order => { %>
                                         <tr>
-                                            <td><%= order.order_id %></td>
+                                            <td class="orderid"><%= order.order_id %></td>
                                             <td><%= order.prod_id %></td>
                                             <td><%= order.cust_id.slice(0,2) + "*".repeat(order.cust_id.length - 2) %></td>
-                                            <td><%= order.qty %></td>
-                                            <td><button class="btn btn-outline-primary btn-sm assign-button">Assign Self</button></td>
+                                            <td><%= order.status %></td>
+                                            <% if (type == 'employee') { %>
+                                                <td><button class="btn btn-outline-primary btn-sm assign-button">Assign Self</button></td>
+                                            <% } %> 
                                         </tr>
                                     <% }); %>
                                 </table>
@@ -65,48 +69,50 @@
                         <% if (empDetails[0].is_mgr == 0) { %>
                             <span class="muted">Sales :</span> &nbsp;&nbsp;&nbsp;<%= empDetails[0].sales %>  &nbsp;&nbsp;&nbsp;
                             <span class="muted">Target :</span> &nbsp;&nbsp;&nbsp;<%= empDetails[0].target %>  &nbsp;&nbsp;&nbsp;
-                            <span class="muted">% of Target :</span> &nbsp;&nbsp;&nbsp;<%= (empDetails[0].sales/empDetails[0].target)*100 %>  <br> 
+                            <span class="muted">% of Target :</span> &nbsp;&nbsp;&nbsp;<%= (empDetails[0].sales/empDetails[0].target)*100 %>%  <br> 
                         <% } %> 
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="my-assigned-orders box">
-                    <h3 class="headings">My Assigned Orders</h3>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tr class="muted">
-                                        <th>Order ID</th>
-                                        <th>Product</th> 
-                                        <th>Quantity</th>
-                                        <th>Customer</th>
-                                        <th>Company</th>
-                                        <th>Shipping Address</th>
-                                        <th>Contact Number</th>
-                                        <th>Status</th>
-                                        <th>Update</th>
-                                    </tr>
-                                    <% assignedToEmp.forEach(order => { %>
-                                        <tr>
-                                            <td><%= order.order_id %></td>
-                                            <td><%= order.prod_name %></td>
-                                            <td><%= order.qty %></td>
-                                            <td><%= order.cust_name %></td>
-                                            <td><%= order.company %></td>
-                                            <td><%= order.shipping_address %></td>
-                                            <td><%= order.mob_no %></td>
-                                            <td class="current-status"><%= order.status.charAt(0).toUpperCase() + order.status.slice(1) %></td>
-                                            <td><select name="status-update" id="status-update">
-                                                <option value="pending">Pending</option>
-                                                <option value="shipped">Shipped</option>
-                                                <option value="recieved">Recieved</option>
-                                            </select></td>
+            <% if (type == 'employee') { %>
+                <div class="row">
+                    <div class="my-assigned-orders box">
+                        <h3 class="headings">My Assigned Orders</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tr class="muted">
+                                            <th>Order ID</th>
+                                            <th>Product</th> 
+                                            <th>Quantity</th>
+                                            <th>Customer</th>
+                                            <th>Company</th>
+                                            <th>Shipping Address</th>
+                                            <th>Contact Number</th>
+                                            <th>Status</th>
+                                            <th>Update</th>
                                         </tr>
-                                    <% }); %>
-                                </table>
-                            </div>
+                                        <% assignedToEmp.forEach(order => { %>
+                                            <tr>
+                                                <td><%= order.order_id %></td>
+                                                <td><%= order.prod_name %></td>
+                                                <td><%= order.qty %></td>
+                                                <td><%= order.cust_name %></td>
+                                                <td><%= order.company %></td>
+                                                <td><%= order.shipping_address %></td>
+                                                <td><%= order.mob_no %></td>
+                                                <td class="current-status"><%= order.status.charAt(0).toUpperCase() + order.status.slice(1) %></td>
+                                                <td><select name="status-update" id="status-update">
+                                                    <option value="pending">Pending</option>
+                                                    <option value="shipped">Shipped</option>
+                                                    <option value="recieved">Recieved</option>
+                                                </select></td>
+                                            </tr>
+                                        <% }); %>
+                                    </table>
+                                </div>
+                    </div>
                 </div>
-            </div>
+            <% } %>
         </div>
         
     </div>
@@ -125,6 +131,22 @@
         else if(currentStatus == 'shipped') document.querySelectorAll('#status-update').selectedIndex = 1;
         else if(currentStatus == 'recieved') document.querySelectorAll('#status-update').selectedIndex = 2;
     </script> -->
+    <script>
+        
+        document.body.onload = ()=>{
+            document.querySelectorAll('.assign-button').forEach(button => {
+                button.addEventListener('click', ()=>{
+                    let order_id = button.parentElement.parentElement.querySelector('.orderid').innerHTML;
+                    // console.log(order_id);
+                    document.querySelector('form.submit-orderid .orderid').value = order_id;
+                    document.querySelector('form.submit-orderid').submit();
+                });
+            });
+        };
+    </script>
+    <form action="/employee/assignself" method="post" class="submit-orderid">
+        <input type="hidden" name="orderid" class="orderid">
+    </form>
 </body>
 
 </html>
