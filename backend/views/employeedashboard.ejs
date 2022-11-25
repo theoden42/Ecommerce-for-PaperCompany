@@ -93,7 +93,7 @@
                                         </tr>
                                         <% assignedToEmp.forEach(order => { %>
                                             <tr>
-                                                <td><%= order.order_id %></td>
+                                                <td class="orderid"><%= order.order_id %></td>
                                                 <td><%= order.prod_name %></td>
                                                 <td><%= order.qty %></td>
                                                 <td><%= order.cust_name %></td>
@@ -101,7 +101,7 @@
                                                 <td><%= order.shipping_address %></td>
                                                 <td><%= order.mob_no %></td>
                                                 <td class="current-status"><%= order.status.charAt(0).toUpperCase() + order.status.slice(1) %></td>
-                                                <td><select name="status-update" id="status-update">
+                                                <td><select name="status-update" class="status-update">
                                                     <option value="pending">Pending</option>
                                                     <option value="shipped">Shipped</option>
                                                     <option value="recieved">Recieved</option>
@@ -138,14 +138,33 @@
                 button.addEventListener('click', ()=>{
                     let order_id = button.parentElement.parentElement.querySelector('.orderid').innerHTML;
                     // console.log(order_id);
-                    document.querySelector('form.submit-orderid .orderid').value = order_id;
-                    document.querySelector('form.submit-orderid').submit();
+                    document.querySelector('form.submit-orderid-assign .orderid').value = order_id;
+                    document.querySelector('form.submit-orderid-assign').submit();
                 });
             });
+
+            document.querySelectorAll('.status-update').forEach(select => {
+                select.addEventListener('change', ()=>{
+                    let currStat = select.parentElement.previousElementSibling.innerText;
+                    let orderId = select.parentElement.parentElement.querySelector('.orderid').innerHTML;
+                    let newStat = 
+                    // console.log(orderid);
+                    document.querySelector('form.submit-new-status .orderid').value = orderId;
+                    document.querySelector('form.submit-new-status .newstatus').value = newStat;
+
+                });
+            });
+
         };
+
+
     </script>
-    <form action="/employee/assignself" method="post" class="submit-orderid">
+    <form action="/employee/assignself" method="post" class="submit-orderid-assign">
         <input type="hidden" name="orderid" class="orderid">
+    </form>
+    <form action="/employee/updatestatus" method="post" class="submit-new-status">
+        <input type="hidden" name="orderid" class="orderid">
+        <input type="hidden" name="newstatus" class="newstatus">
     </form>
 </body>
 
