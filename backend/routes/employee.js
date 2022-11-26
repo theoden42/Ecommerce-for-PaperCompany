@@ -40,7 +40,6 @@ router.get('/dashboard', privilege.isEmployee, (req, res, next) => {
 router.post('/assignself', privilege.isRegEmployee, (req, res, next) => {
     const order_id = req.body.orderid;
     const user_id = req.session.user.user_id;
-    console.log(order_id);
     db.query('SELECT assigned FROM orders WHERE order_id = ?', [order_id], (error, results) => {
         if(error) throw error;
         else if(results[0].assigned != null) res.status(400).render('400forbidden');
@@ -49,6 +48,24 @@ router.post('/assignself', privilege.isRegEmployee, (req, res, next) => {
             db.query('UPDATE orders SET assigned = ? WHERE order_id = ?;', [user_id, order_id], (errors, results) => {
                 if(errors) throw errors;
                 else res.status(200).redirect('/employee/dashboard');
+            });
+        }
+    });
+});
+
+router.post('/updatestatus', privilege.isRegEmployee, (req, res, next) => {
+    const order_id = req.body.orderid;
+    const newStatus = req.body.newstatus;
+    const user_id = req.session.user.user_id;
+    db.query('SELECT * FROM orders WHERE order_id = ?', [order_id], (error, results) => {
+        if(error) throw error;
+        else if(results[0].assigned != user_id) res.status(400).render('400forbidden');
+        else{
+            db.query('UPDATE orders SET status = ? WHERE order_id = ?;', [newStatus, order_id], (errors, results) => {
+                if(errors) throw errors;
+                else{
+                    res.status(200).redirect('/employee/dashboard');
+                } 
             });
         }
     });

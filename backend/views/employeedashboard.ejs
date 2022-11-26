@@ -69,7 +69,7 @@
                         <% if (empDetails[0].is_mgr == 0) { %>
                             <span class="muted">Sales :</span> &nbsp;&nbsp;&nbsp;<%= empDetails[0].sales %>  &nbsp;&nbsp;&nbsp;
                             <span class="muted">Target :</span> &nbsp;&nbsp;&nbsp;<%= empDetails[0].target %>  &nbsp;&nbsp;&nbsp;
-                            <span class="muted">% of Target :</span> &nbsp;&nbsp;&nbsp;<%= (empDetails[0].sales/empDetails[0].target)*100 %>%  <br> 
+                            <span class="muted">% of Target :</span> &nbsp;&nbsp;&nbsp;<%= ((empDetails[0].sales/empDetails[0].target)*100).toPrecision(3) %>%  <br> 
                         <% } %> 
                     </div>
                 </div>
@@ -102,9 +102,9 @@
                                                 <td><%= order.mob_no %></td>
                                                 <td class="current-status"><%= order.status.charAt(0).toUpperCase() + order.status.slice(1) %></td>
                                                 <td><select name="status-update" class="status-update">
-                                                    <option value="pending">Pending</option>
-                                                    <option value="shipped">Shipped</option>
-                                                    <option value="recieved">Recieved</option>
+                                                    <option value="pending <% if (order.status == "pending") { %>selected<% } %>">Pending</option>
+                                                    <option value="shipped" <% if (order.status == "shipped") { %>selected<% } %>>Shipped</option>
+                                                    <option value="recieved" <% if (order.status == "recieved") { %>selected<% } %>>Recieved</option>
                                                 </select></td>
                                             </tr>
                                         <% }); %>
@@ -144,14 +144,15 @@
             });
 
             document.querySelectorAll('.status-update').forEach(select => {
+                if(select.value == 'recieved') select.disabled = true;
                 select.addEventListener('change', ()=>{
                     let currStat = select.parentElement.previousElementSibling.innerText;
                     let orderId = select.parentElement.parentElement.querySelector('.orderid').innerHTML;
-                    let newStat = 
-                    // console.log(orderid);
+                    let newStat = select.value;
+                    // console.log(newStat);
                     document.querySelector('form.submit-new-status .orderid').value = orderId;
                     document.querySelector('form.submit-new-status .newstatus').value = newStat;
-
+                    document.querySelector('form.submit-new-status').submit();
                 });
             });
 
