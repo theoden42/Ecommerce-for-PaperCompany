@@ -23,6 +23,17 @@ router.get('/orderproduct', privilege.isCustomer, (req, res, next) => {
     });
 });
 
+router.post('/markrecieved', privilege.isCustomer, (req, res, next) => {
+    let custid = req.session.user.user_id;
+    let orderid = req.body.orderid;
+    db.query('UPDATE orders SET status = "recieved" WHERE order_id = ? AND cust_id = ?;',[orderid, custid], (errors, results) => {
+        if(errors) throw errors;
+        else{
+            res.status(200).redirect('/customer/dashboard');
+        }
+    });
+});
+
 router.get('/createorder', privilege.isCustomer, ordermanager.handleOrder);
 
 module.exports = router;
