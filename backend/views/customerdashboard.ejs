@@ -33,13 +33,11 @@
                         <a href="/customer/order">Place an order!</a>
                     </div>
                 </div> -->
-                <div class="row box">
-                    <div class="cust-details">
-                        <h4 class="headings">Your Details</h4>
-                        <span class="muted">Name :</span> &nbsp;&nbsp;&nbsp;<%= custDetails[0].name %> <br> 
-                        <span class="muted">Mobile No. :</span> &nbsp;&nbsp;&nbsp;<%= custDetails[0].mob_no %> <br> 
-                        <span class="muted">Shipping Address :</span> &nbsp;&nbsp;&nbsp;<%= custDetails[0].shipping_address %> <br> 
-                    </div>
+                <div class="cust-details box">
+                    <h4 class="headings">Your Details</h4>
+                    <span class="muted">Name :</span> &nbsp;&nbsp;&nbsp;<%= custDetails[0].name %> <br> 
+                    <span class="muted">Mobile No. :</span> &nbsp;&nbsp;&nbsp;<%= custDetails[0].mob_no %> <br> 
+                    <span class="muted">Shipping Address :</span> &nbsp;&nbsp;&nbsp;<%= custDetails[0].shipping_address %> <br> 
                 </div>
                 <!-- <div class="row box">
                     <div class="update-address">
@@ -54,14 +52,50 @@
                 </div>
             </div>
         </div>
-        <div class="">
-            <%- include('partials/custorders', {custOrders : custOrders}) %> 
+        <div class="row ">
+            <div class="ongoing-orders box" style="width: 100%;">
+                <h3 class="headings">Ongoing Orders</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product</th> 
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                        <% custOrders.forEach(ord => { %>
+                            <% if (ord.status != 'recieved') { %>
+                            <tr>
+                                <td><%= ord.order_id %></td>
+                                <td><%= ord.name %></td>
+                                <td><%= ord.qty %></td>
+                                <td><%= ord.status %></td>
+                                <td><button class="btn btn-outline-primary btn-sm recieve-button">Recieved</button></td>
+                            </tr>
+                            <% } %>
+                        <% }); %>
+                    </table>
+                </div>
+            </div>
         </div>
 
 
     </div>
     <%- include('partials/footerscripts') %> 
-
+    <form action="/customer/markrecieved" method="post">
+        <input type="hidden" class="orderid" name="orderid">
+    </form>
+    <script>
+        document.body.onload = () => {
+            document.querySelectorAll('.recieve-button').forEach(button => {
+                button.addEventListener('click', ()=>{
+                    let orderid = button.parentElement.parentElement.firstChild.innerText;
+                    document.querySelector()
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
