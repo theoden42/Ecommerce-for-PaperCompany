@@ -12,6 +12,8 @@
 
 
 <div style="width: 100%; padding: 20px; text-align: center; font-size: 20px; margin-top: 30px;">
+
+
 This is a project we made for our 'Database Management Systems' course and it includes several features required for management of daily office work at a small scale paper distributor(Dunder Mifflin!). Details are down below!
 </div>
 
@@ -63,7 +65,7 @@ This is a project we made for our 'Database Management Systems' course and it in
 <div style="width: 100%; display: flex; jusitfy-content: space-between;" >
 
 <div style="width: 50%; text-align: center; border: thin solid white">
-<span style="font-size: 20px;">Server</span>
+<span style="font-size: 20px;">Server: </span>
 
 <p style="font-size: 13px;">
 Express.js <br>
@@ -73,7 +75,7 @@ Templating Engine: EJS
 </div>
 
 <div style="width: 50%; text-align: center; border:thin solid white;">
-<span style="font-size: 20px;">Database</span>
+<span style="font-size: 20px;">Database: </span>
 <p style="font-size: 13px;">
 MySQL<br>
 PHPMyAdmin as console
